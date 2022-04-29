@@ -31,7 +31,7 @@ class EftCashBot(discord.Client):
     async def on_message(self, message):
         if message.author == client.user:
             return
-        if message.content == "/startCash" and self.running is False:
+        if message.content == "startEftCash" and self.running is False:
             print("start in {}".format(message.channel))
             self.running = True
             asyncio.get_event_loop().create_task(get_cash(message))
@@ -40,7 +40,7 @@ class EftCashBot(discord.Client):
             except Exception:
                 print("Something went wrong in channel {}", message.channel)
 
-        if message.content == "/stopCash" and self.running:
+        if message.content == "stopEftCash" and self.running:
             print("stop in {}".format(message.channel))
             self.running = False
             try:
